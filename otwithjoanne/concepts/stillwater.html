@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OTwithJoanne · Stillwater</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Joanne Di Lizio, occupational therapist in Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600&display=swap">
+<style>
+/* Layout: the business card, enlarged into a page. Logo left, name right; then a quiet two-column rhythm (label | content). Single light theme by choice. */
+:root {
+  --paper: #fbfcfc;
+  --ink: #34424d;
+  --muted: #697884;
+  --mist: #b3c6d3;
+  --mist-soft: #e9f0f4;
+  --line: #dbe4ea;
+  --display: "Quicksand", "Varela Round", system-ui, sans-serif;
+  --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 300 1.0625rem/1.7 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.wrap {
+  max-width: 68rem; margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.75rem; flex-wrap: wrap; }
+.wordmark { font: 500 1.15rem/1 var(--display); letter-spacing: .01em; text-decoration: none; }
+.wordmark b { font-weight: 600; }
+.top nav { display: flex; gap: 1.75rem; font-size: .95rem; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--ink); }
+
+/* Hero: the card */
+.hero {
+  display: grid; grid-template-columns: minmax(180px, 300px) 1fr; gap: clamp(1.5rem, 5vw, 4.5rem);
+  align-items: center; padding-block: clamp(2rem, 7vw, 5.5rem) clamp(3rem, 8vw, 6.5rem);
+}
+.mark { width: 100%; max-width: 300px; height: auto; display: block; }
+.hero h1 { font: 400 clamp(2.6rem, 6.4vw, 4.6rem)/1.05 var(--display); margin: 0 0 1.25rem; letter-spacing: -.005em; text-wrap: balance; }
+.role { font: 500 .8rem/1 var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 1.1rem; }
+.lede { font-size: clamp(1.1rem, 1.8vw, 1.3rem); max-width: 34ch; margin: 0 0 2rem; color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; }
+.btn {
+  display: inline-block; font: 600 .95rem/1 var(--body); text-decoration: none;
+  background: var(--ink); color: var(--paper); padding: .95rem 1.5rem; border-radius: 999px;
+  transition: background .2s;
+}
+.btn:hover { background: #24303a; }
+.phone { font: 500 1rem/1 var(--display); text-decoration: none; letter-spacing: .02em; }
+
+/* Sections */
+section.row {
+  display: grid; grid-template-columns: 14rem 1fr; gap: 1.5rem 3rem;
+  padding-block: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line);
+}
+.row > h2 { font: 500 .8rem/1.6 var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: .35rem 0 0; }
+.row > div { min-width: 0; max-width: 42rem; }
+.row p { margin: 0 0 1.1rem; }
+.big { font: 400 clamp(1.5rem, 2.6vw, 1.95rem)/1.4 var(--display); margin: 0 0 1.5rem; text-wrap: balance; }
+
+.services { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.5rem; }
+.services h3 { font: 600 1.1rem/1.3 var(--display); margin: 0 0 .4rem; display: flex; gap: .6rem; align-items: center; }
+.services h3::before { content: ""; width: .65rem; height: .65rem; border-radius: 50%; background: var(--mist); flex: none; }
+.services p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 2.75rem 1fr; gap: 1rem; align-items: start; }
+.steps li::before {
+  content: counter(s); font: 500 1rem/2.75rem var(--display); text-align: center;
+  width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--mist-soft); color: var(--ink);
+}
+.steps strong { font: 600 1.05rem/1.4 var(--display); display: block; margin-top: .45rem; }
+.steps span { color: var(--muted); font-size: 1rem; }
+
+.funding { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1.25rem; padding: 0; list-style: none; }
+.funding li { border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; font-size: .95rem; background: #fff; }
+.note { font-size: .95rem; color: var(--muted); }
+
+/* Contact */
+.contact { background: var(--mist-soft); }
+.contact .wrap { display: grid; grid-template-columns: 1fr auto; gap: 2rem 4rem; align-items: end; padding-block: clamp(3.5rem, 8vw, 6rem); }
+.contact h2 { font: 400 clamp(2rem, 4.4vw, 3.2rem)/1.1 var(--display); margin: 0 0 1rem; text-wrap: balance; }
+.contact p { margin: 0; max-width: 36ch; }
+.contact dl { margin: 0; display: grid; gap: 1.1rem; }
+.contact dt { font: 500 .75rem/1 var(--display); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .35rem; }
+.contact dd { margin: 0; font: 500 clamp(1.1rem, 2vw, 1.35rem)/1.3 var(--display); overflow-wrap: anywhere; }
+.contact dd a { text-decoration: none; border-bottom: 1px solid var(--mist); }
+
+footer .wrap { display: grid; grid-template-columns: 1fr auto; gap: 1rem 3rem; padding-block: 2.5rem 6rem; font-size: .875rem; color: var(--muted); }
+footer p { margin: 0; max-width: 60ch; }
+
+/* Concept switcher (not part of the real site) */
+.concept-pill {
+  position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  font: 600 .8rem/1 var(--body); background: #fff; color: var(--ink); text-decoration: none;
+  border: 1px solid var(--line); border-radius: 999px; padding: .7rem 1rem; box-shadow: 0 6px 20px rgba(40,60,75,.12);
+}
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .mark { max-width: 190px; }
+  section.row { grid-template-columns: 1fr; gap: 1rem; }
+  .services { grid-template-columns: 1fr; }
+  .contact .wrap, footer .wrap { grid-template-columns: 1fr; }
+  .top nav { gap: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="#"><b>OT</b>withJoanne</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <svg class="mark" viewBox="0 0 200 260" role="img" aria-label="OTwithJoanne logo: a leafy sprig over a soft blue circle">
+        <defs>
+          <g id="lf"><path d="M0 0 C 12 -13 34 -15 52 0 C 34 13 12 12 0 0 Z" fill="none"/><path d="M4 0 C 18 -1.5 33 -1 46 0" fill="none"/></g>
+        </defs>
+        <circle cx="94" cy="92" r="80" fill="#b3c6d3"/>
+        <g fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.1">
+          <circle cx="94" cy="92" r="70" stroke-dasharray="40 7 22 5"/>
+          <circle cx="94" cy="92" r="58" stroke-dasharray="30 6 50 4"/>
+          <circle cx="94" cy="92" r="46" stroke-dasharray="25 5 12 6"/>
+          <circle cx="94" cy="92" r="34" stroke-dasharray="18 4 30 5"/>
+          <circle cx="94" cy="92" r="22" stroke-dasharray="14 5"/>
+        </g>
+        <g fill="none" stroke="#34424d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M120 252 C 112 210 98 160 100 110 C 101 80 97 58 90 36"/>
+          <use href="#lf" transform="translate(92 46) rotate(-98) scale(.75)"/>
+          <use href="#lf" transform="translate(99 90) rotate(-128) scale(1)"/>
+          <use href="#lf" transform="translate(99.5 94) rotate(-55) scale(1.05)"/>
+          <use href="#lf" transform="translate(100 104) rotate(-84) scale(.85)"/>
+          <use href="#lf" transform="translate(100 120) rotate(-165) scale(1.35)"/>
+          <use href="#lf" transform="translate(101 132) rotate(-22) scale(1.1)"/>
+          <use href="#lf" transform="translate(106 182) rotate(-8) scale(.95)"/>
+          <use href="#lf" transform="translate(108 196) rotate(176) scale(1.2)"/>
+          <use href="#lf" transform="translate(111 212) rotate(158) scale(.9)"/>
+        </g>
+      </svg>
+      <div>
+        <p class="role">Occupational Therapist · Brisbane</p>
+        <h1>Joanne Di Lizio</h1>
+        <p class="lede">Helping you do the everyday things that matter, with more confidence and independence.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:otwithjoanne@gmail.com">Book a chat</a>
+          <a class="phone" href="tel:+61435255665">0435 255 665</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="row" id="about">
+      <h2>About</h2>
+      <div>
+        <p class="big">Occupational therapy is about the ordinary parts of life: getting ready in the morning, cooking a meal, getting out into the community, doing the work you love.</p>
+        <p>I'm Joanne, a registered occupational therapist based in Brisbane. I started OTwithJoanne to offer therapy that is unhurried and personal. I come to you, take the time to understand what a good day looks like for you, and work alongside you and the people who support you to get there.</p>
+      </div>
+    </section>
+
+    <section class="row" id="services">
+      <h2>Services</h2>
+      <div>
+        <ul class="services">
+          <li><h3>Functional assessments</h3><p>A clear picture of your strengths and needs at home and in the community, with practical recommendations.</p></li>
+          <li><h3>Home modifications</h3><p>Rails, ramps, bathroom changes and layout advice so your home works for you.</p></li>
+          <li><h3>Assistive equipment</h3><p>Trialling, prescribing and setting up the right equipment, from shower chairs to mobility aids.</p></li>
+          <li><h3>Daily living skills</h3><p>Building routines and skills for self-care, meal preparation and getting around.</p></li>
+          <li><h3>NDIS reports</h3><p>Thorough, well-evidenced reports for plan reviews and funding requests.</p></li>
+          <li><h3>Mobile visits</h3><p>Appointments in your home, workplace or community across Brisbane.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="row" id="how">
+      <h2>How it works</h2>
+      <div>
+        <ol class="steps">
+          <li><div><strong>Get in touch</strong><span>Call or email. You can refer yourself, or be referred by your GP, support coordinator or family.</span></div></li>
+          <li><div><strong>Initial assessment</strong><span>We meet where life happens, usually at home, to talk about your goals and see what's getting in the way.</span></div></li>
+          <li><div><strong>A plan together</strong><span>You receive clear recommendations and a plan that fits your priorities and budget.</span></div></li>
+          <li><div><strong>Therapy and review</strong><span>We work towards your goals and check in regularly so the plan keeps up with you.</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="row" id="funding">
+      <h2>Funding</h2>
+      <div>
+        <ul class="funding">
+          <li>NDIS (self- and plan-managed)</li>
+          <li>Medicare with a GP plan</li>
+          <li>Private health insurance</li>
+          <li>DVA</li>
+          <li>Private clients</li>
+        </ul>
+        <p class="note">Not sure what you're eligible for? Ask me and I'll help you work it out.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's have a chat.</h2>
+      <p>Tell me a little about what you're looking for and I'll get back to you within two business days.</p>
+    </div>
+    <dl>
+      <div><dt>Email</dt><dd><a href="mailto:otwithjoanne@gmail.com">otwithjoanne@gmail.com</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+61435255665">0435 255 665</a></dd></div>
+      <div><dt>Area</dt><dd>Brisbane and surrounds</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>OTwithJoanne acknowledges the Turrbal and Yugara peoples, Traditional Custodians of the land on which we live and work, and pays respect to Elders past and present.</p>
+    <p>© 2026 OTwithJoanne · AHPRA registered</p>
+  </div>
+</footer>
+
+<a class="concept-pill" href="index.html">← All concepts · Stillwater</a>
+</body>
+</html>

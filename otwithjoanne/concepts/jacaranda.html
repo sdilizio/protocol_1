@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OTwithJoanne · Jacaranda</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Joanne Di Lizio, occupational therapist in Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: warm and friendly. Split hero with painted circles (the card's blue, plus Brisbane jacaranda lilac) and a few drifting blossoms; then soft tinted panels. Single light theme by choice. */
+:root {
+  --white: #ffffff;
+  --ink: #2a2e44;
+  --muted: #62667c;
+  --blue: #a9c1d1;
+  --blue-soft: #edf3f7;
+  --lilac: #a99bd6;
+  --lilac-soft: #f2effa;
+  --line: #e4e6ee;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--white);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--white); color: var(--ink); font: 400 1.05rem/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.wrap {
+  max-width: 74rem; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.4rem; flex-wrap: wrap; }
+.wordmark { display: flex; align-items: center; gap: .6rem; font: 600 1.2rem/1 var(--display); text-decoration: none; }
+.wordmark .dot { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: radial-gradient(circle at 35% 35%, var(--blue) 0 60%, #97b2c5 100%); }
+.wordmark em { font-style: normal; font-weight: 300; }
+.top nav { display: flex; gap: .4rem; flex-wrap: wrap; }
+.top nav a { text-decoration: none; font-weight: 500; font-size: .95rem; padding: .55rem .9rem; border-radius: 999px; }
+.top nav a:hover { background: var(--blue-soft); }
+.top nav a.call { background: var(--ink); color: var(--white); }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2rem 3rem; align-items: center; padding-block: clamp(1.5rem, 5vw, 4rem) clamp(3rem, 7vw, 5.5rem); }
+.hero > div { min-width: 0; }
+.tag { display: inline-flex; align-items: center; gap: .5rem; background: var(--lilac-soft); color: #5b4f8f; font-weight: 600; font-size: .85rem; padding: .45rem .85rem; border-radius: 999px; margin-bottom: 1.5rem; }
+.tag::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--lilac); }
+.hero h1 { font-weight: 400; font-size: clamp(2.8rem, 6.6vw, 5.3rem); line-height: .98; letter-spacing: -.03em; margin: 0 0 1.4rem; }
+.hero h1 b { font-weight: 600; }
+.hero p { font-size: 1.2rem; color: var(--muted); max-width: 30rem; margin: 0 0 2rem; }
+.btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; text-decoration: none; padding: .95rem 1.4rem; border-radius: 14px; transition: transform .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--ink); color: var(--white); }
+.btn.ghost { background: var(--blue-soft); }
+.who { display: flex; align-items: center; gap: .9rem; margin-top: 2.25rem; font-size: .95rem; color: var(--muted); }
+.who strong { color: var(--ink); display: block; font-family: var(--display); font-weight: 600; font-size: 1.05rem; }
+
+.art { position: relative; aspect-ratio: 1 / 1; max-width: 100%; width: 100%; }
+.art canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.art svg.sprig { position: absolute; left: 22%; top: 8%; width: 52%; height: auto; }
+.petal { position: absolute; width: 14px; height: 14px; color: var(--lilac); }
+@media (prefers-reduced-motion: no-preference) {
+  .petal { animation: drift 9s ease-in-out infinite alternate; }
+  .petal:nth-of-type(2n) { animation-duration: 11s; animation-delay: -3s; }
+  .petal:nth-of-type(3n) { animation-duration: 13s; animation-delay: -6s; }
+}
+@keyframes drift { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(14px, 22px) rotate(70deg); } }
+
+.panel { border-radius: 28px; }
+.about { background: var(--blue-soft); display: grid; grid-template-columns: 1fr 1.4fr; gap: 1.5rem 4rem; padding: clamp(2rem, 5vw, 4rem); }
+.about h2 { font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.02em; margin: 0; }
+.about p { margin: 0 0 1rem; max-width: 60ch; }
+.about > div { min-width: 0; }
+
+.services { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 1rem 3rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
+.head h2 { font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.02em; margin: 0; }
+.head p { margin: 0; color: var(--muted); max-width: 26rem; }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.grid li { border: 1px solid var(--line); border-radius: 20px; padding: 1.6rem; min-width: 0; transition: border-color .2s, background .2s; }
+.grid li:hover { border-color: var(--blue); background: #fbfdfe; }
+.grid h3 { font-size: 1.25rem; font-weight: 600; margin: 0 0 .5rem; letter-spacing: -.01em; }
+.grid p { margin: 0; color: var(--muted); font-size: .98rem; }
+.ico { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; margin-bottom: 1.1rem; }
+.ico svg { width: 1.35rem; height: 1.35rem; }
+.grid li:nth-child(odd) .ico { background: var(--blue-soft); }
+.grid li:nth-child(even) .ico { background: var(--lilac-soft); }
+
+.steps-band { background: var(--ink); color: var(--white); padding: clamp(2.25rem, 5vw, 4rem); }
+.steps-band h2 { font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.02em; margin: 0 0 2rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; counter-reset: s; }
+.steps li { counter-increment: s; min-width: 0; border-top: 1px solid rgba(255,255,255,.18); padding-top: 1.1rem; }
+.steps li::before { content: "Step " counter(s); display: block; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lilac); margin-bottom: .5rem; }
+.steps strong { display: block; font-family: var(--display); font-weight: 600; font-size: 1.2rem; margin-bottom: .3rem; }
+.steps span { color: #c9cbda; font-size: .96rem; }
+
+.fund { padding-block: clamp(3rem, 7vw, 5rem); display: grid; grid-template-columns: 1fr 1.6fr; gap: 1.5rem 4rem; align-items: center; }
+.fund h2 { font-weight: 400; font-size: clamp(1.8rem, 3.4vw, 2.5rem); letter-spacing: -.02em; margin: 0; line-height: 1.1; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.chips li { padding: .6rem 1rem; border-radius: 999px; background: var(--lilac-soft); font-weight: 500; font-size: .95rem; }
+.chips li:nth-child(even) { background: var(--blue-soft); }
+
+.contact { background: linear-gradient(135deg, var(--blue-soft), var(--lilac-soft)); padding: clamp(2.25rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem 4rem; align-items: center; }
+.contact h2 { font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -.03em; line-height: 1; margin: 0 0 1rem; }
+.contact p { margin: 0; color: var(--muted); max-width: 32ch; }
+.cards { display: grid; gap: .75rem; }
+.cards a, .cards div { display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--white); border-radius: 16px; padding: 1.1rem 1.3rem; text-decoration: none; min-width: 0; }
+.cards small { color: var(--muted); font-size: .85rem; }
+.cards b { font-family: var(--display); font-weight: 600; font-size: 1.1rem; overflow-wrap: anywhere; text-align: right; }
+
+footer .wrap { padding-block: 2.5rem 6rem; display: flex; justify-content: space-between; gap: 1rem 3rem; flex-wrap: wrap; font-size: .85rem; color: var(--muted); }
+footer p { margin: 0; max-width: 62ch; }
+
+.concept-pill {
+  position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 5;
+  font: 600 .8rem/1 var(--body); background: var(--white); color: var(--ink); text-decoration: none;
+  border: 1px solid var(--line); border-radius: 999px; padding: .7rem 1rem; box-shadow: 0 6px 20px rgba(42,46,68,.14);
+}
+
+@media (max-width: 900px) {
+  .hero, .about, .fund, .contact { grid-template-columns: 1fr; }
+  .art { max-width: 420px; margin: 0 auto; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid, .steps { grid-template-columns: 1fr; }
+  .top nav a:not(.call) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="lf"><path d="M0 0 C 12 -13 34 -15 52 0 C 34 13 12 12 0 0 Z" fill="none"/><path d="M4 0 C 18 -1.5 33 -1 46 0" fill="none"/></g>
+    <g id="bloom"><path fill="currentColor" d="M7 1.2c1.3 0 2 1.2 1.7 2.6 1.3-.6 2.7 0 2.9 1.3.2 1.2-.9 2-2.1 2 .9 1 .8 2.4-.3 3-1.1.6-2.2-.1-2.6-1.2-.5 1.1-1.6 1.8-2.6 1.2-1.1-.6-1.2-2-.3-3-1.2 0-2.3-.8-2.1-2 .2-1.3 1.6-1.9 2.9-1.3C5 2.4 5.7 1.2 7 1.2Z"/><circle cx="7" cy="6.6" r="1.1" fill="#ffffff" fill-opacity=".7"/></g>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="#"><span class="dot" aria-hidden="true"></span><span>OT<em>with</em>Joanne</span></a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#funding">Funding</a>
+      <a class="call" href="#contact">Get in touch</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="tag">Mobile occupational therapy across Brisbane</span>
+        <h1>Do more of <b>what matters</b> to you.</h1>
+        <p>Friendly, practical OT that comes to you, helping you live safely and independently at home and in your community.</p>
+        <div class="btns">
+          <a class="btn primary" href="#contact">Book a chat</a>
+          <a class="btn ghost" href="#services">See services</a>
+        </div>
+        <div class="who">
+          <span><strong>Joanne Di Lizio</strong>Registered Occupational Therapist</span>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <canvas id="paint" width="800" height="800"></canvas>
+        <svg class="sprig" viewBox="0 0 200 260">
+          <g fill="none" stroke="#2a2e44" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M120 252 C 112 210 98 160 100 110 C 101 80 97 58 90 36"/>
+            <use href="#lf" transform="translate(92 46) rotate(-98) scale(.75)"/>
+            <use href="#lf" transform="translate(99 90) rotate(-128) scale(1)"/>
+            <use href="#lf" transform="translate(99.5 94) rotate(-55) scale(1.05)"/>
+            <use href="#lf" transform="translate(100 104) rotate(-84) scale(.85)"/>
+            <use href="#lf" transform="translate(100 120) rotate(-165) scale(1.35)"/>
+            <use href="#lf" transform="translate(101 132) rotate(-22) scale(1.1)"/>
+            <use href="#lf" transform="translate(106 182) rotate(-8) scale(.95)"/>
+            <use href="#lf" transform="translate(108 196) rotate(176) scale(1.2)"/>
+            <use href="#lf" transform="translate(111 212) rotate(158) scale(.9)"/>
+          </g>
+        </svg>
+        <svg class="petal" style="left:78%;top:14%" viewBox="0 0 14 13"><use href="#bloom"/></svg>
+        <svg class="petal" style="left:86%;top:40%;width:10px" viewBox="0 0 14 13"><use href="#bloom"/></svg>
+        <svg class="petal" style="left:8%;top:30%;width:11px" viewBox="0 0 14 13"><use href="#bloom"/></svg>
+        <svg class="petal" style="left:70%;top:78%;width:16px" viewBox="0 0 14 13"><use href="#bloom"/></svg>
+        <svg class="petal" style="left:16%;top:82%;width:12px" viewBox="0 0 14 13"><use href="#bloom"/></svg>
+      </div>
+    </section>
+
+    <section class="about panel" id="about">
+      <h2>Hi, I'm Joanne.</h2>
+      <div>
+        <p>I'm a registered occupational therapist based in Brisbane. OT is about the everyday: getting dressed, making a cuppa, getting to the shops, going back to work. When those things get harder, I help you find a way.</p>
+        <p>I visit you at home or wherever you need support, listen first, and work alongside you, your family and your support team to build a plan that genuinely fits your life.</p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="head">
+        <h2>How I can help</h2>
+        <p>A few of the things I do most. Not sure if OT is right for you? Just ask.</p>
+      </div>
+      <ul class="grid">
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6M9 4a2 2 0 0 0-2 2v13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6a2 2 0 0 0-2-2M10 11l1.5 1.5L14.5 9.5M10 16h4"/></svg></div><h3>Functional assessments</h3><p>A clear picture of what's working and what isn't, with practical next steps.</p></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></div><h3>Home modifications</h3><p>Rails, ramps and bathroom changes so home stays safe and comfortable.</p></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="17" r="4"/><path d="M9 13V6h4l2 5h3l2 6M9 6V3"/></svg></div><h3>Equipment</h3><p>Finding, trialling and setting up the right assistive equipment for you.</p></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9ZM16 10h1.5a2.5 2.5 0 0 1 0 5H16M9 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg></div><h3>Daily living skills</h3><p>Routines for self-care, meals and getting out and about with confidence.</p></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>NDIS reports</h3><p>Thorough, well-evidenced reports for plan reviews and funding requests.</p></li>
+        <li><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2e44" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></div><h3>I come to you</h3><p>Visits at home, at work or in the community, right across Brisbane.</p></li>
+      </ul>
+    </section>
+
+    <section class="steps-band panel">
+      <h2>What to expect</h2>
+      <ol class="steps">
+        <li><strong>Say hello</strong><span>Call or email. Self-referrals are welcome, as are referrals from GPs and coordinators.</span></li>
+        <li><strong>First visit</strong><span>We meet, usually at home, to talk about your goals and what's getting in the way.</span></li>
+        <li><strong>Your plan</strong><span>Clear recommendations that fit your priorities and budget.</span></li>
+        <li><strong>Keep going</strong><span>Therapy sessions and regular check-ins as things change.</span></li>
+      </ol>
+    </section>
+
+    <section class="fund" id="funding">
+      <h2>Ways to fund your therapy</h2>
+      <ul class="chips">
+        <li>NDIS (self- and plan-managed)</li>
+        <li>Medicare with a GP plan</li>
+        <li>Private health insurance</li>
+        <li>DVA</li>
+        <li>Private clients</li>
+      </ul>
+    </section>
+
+    <section class="contact panel" id="contact">
+      <div>
+        <h2>Let's have a chat.</h2>
+        <p>Get in touch and I'll get back to you within two business days.</p>
+      </div>
+      <div class="cards">
+        <a href="mailto:otwithjoanne@gmail.com"><small>Email</small><b>otwithjoanne@gmail.com</b></a>
+        <a href="tel:+61435255665"><small>Phone</small><b>0435 255 665</b></a>
+        <div><small>Area</small><b>Brisbane &amp; surrounds</b></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>OTwithJoanne acknowledges the Turrbal and Yugara peoples, Traditional Custodians of the land on which we live and work, and pays respect to Elders past and present.</p>
+    <p>© 2026 OTwithJoanne · AHPRA registered</p>
+  </div>
+</footer>
+
+<a class="concept-pill" href="index.html">← All concepts · Jacaranda</a>
+
+<script>
+// Paints two soft, textured circles like the one on Joanne's business card.
+(function () {
+  var c = document.getElementById('paint');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var seed = 7;
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  function blob(cx, cy, r, rgb) {
+    ctx.fillStyle = 'rgba(' + rgb + ',0.95)';
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+    // brushed rings
+    for (var i = 0; i < 70; i++) {
+      var rr = r * (0.08 + 0.9 * rnd());
+      var a0 = rnd() * Math.PI * 2, len = 0.4 + rnd() * 2.2;
+      ctx.strokeStyle = rnd() > 0.5 ? 'rgba(255,255,255,0.16)' : 'rgba(' + rgb + ',0.9)';
+      ctx.lineWidth = 1 + rnd() * 2.2;
+      ctx.beginPath(); ctx.arc(cx + (rnd() - .5) * 6, cy + (rnd() - .5) * 6, rr, a0, a0 + len); ctx.stroke();
+    }
+    // soft ragged edge
+    for (var j = 0; j < 140; j++) {
+      var t = rnd() * Math.PI * 2, d = r + (rnd() - .6) * 6;
+      ctx.fillStyle = 'rgba(' + rgb + ',' + (0.25 + rnd() * 0.4) + ')';
+      ctx.beginPath(); ctx.arc(cx + Math.cos(t) * d, cy + Math.sin(t) * d, 1 + rnd() * 2.5, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  blob(520, 520, 230, '169,155,214');
+  ctx.globalCompositeOperation = 'multiply';
+  ctx.globalAlpha = 0.8;
+  blob(340, 330, 270, '169,193,209');
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 1;
+})();
+</script>
+</body>
+</html>

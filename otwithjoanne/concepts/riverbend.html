@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OTwithJoanne · Riverbend</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Joanne Di Lizio, occupational therapist in Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: editorial. A deep river-blue opening with the sprig drawn large, then generous serif headings on a cool linen ground, joined by a single winding line (the Brisbane River). Single theme by choice. */
+:root {
+  --river: #22313c;
+  --river-2: #2c3e4b;
+  --linen: #f2f5f6;
+  --white: #ffffff;
+  --ink: #22313c;
+  --muted: #5d6d79;
+  --mist: #a7bdcb;
+  --pale: #e6edf1;
+  --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --sans: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--river);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .draw path, .draw use { animation: none !important; stroke-dashoffset: 0 !important; } }
+body { margin: 0; background: var(--linen); color: var(--ink); font: 300 1.05rem/1.75 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--mist); outline-offset: 3px; }
+.wrap {
+  max-width: 72rem; margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+
+/* Opening */
+.open { background: var(--river); color: var(--pale); position: relative; overflow: hidden; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.75rem; position: relative; z-index: 2; flex-wrap: wrap; }
+.wordmark { font: 400 1.5rem/1 var(--serif); text-decoration: none; letter-spacing: .01em; }
+.wordmark i { font-style: italic; color: var(--mist); }
+.top nav { display: flex; gap: 2rem; font: 400 .8rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+.top nav a { text-decoration: none; opacity: .75; }
+.top nav a:hover { opacity: 1; }
+.hero { position: relative; z-index: 2; padding-block: clamp(3rem, 9vw, 7.5rem) clamp(4rem, 10vw, 8rem); max-width: 40rem; }
+.kicker { font: 400 .78rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--mist); margin: 0 0 1.75rem; }
+.hero h1 { font: 300 clamp(3rem, 7.5vw, 5.8rem)/.98 var(--serif); margin: 0 0 2rem; letter-spacing: -.01em; color: #fff; text-wrap: balance; }
+.hero h1 em { font-style: italic; color: var(--mist); }
+
+.hero p { font-size: 1.15rem; max-width: 32rem; margin: 0 0 2.5rem; color: var(--pale); }
+.hero .byline { font: italic 400 1.4rem/1.3 var(--serif); color: var(--mist); margin: -1rem 0 1.75rem; }
+.cta { display: inline-flex; gap: .8rem; align-items: center; font: 400 .85rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; color: #fff; border-bottom: 1px solid var(--mist); padding-bottom: .5rem; }
+.cta span { transition: transform .25s; }
+.cta:hover span { transform: translateX(4px); }
+.big-sprig { position: absolute; right: max(-60px, -4vw); bottom: -40px; width: min(52vw, 620px); height: auto; z-index: 1; }
+.draw path, .draw use { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 3.2s cubic-bezier(.4,.1,.2,1) forwards; }
+.draw use:nth-of-type(n+2) { animation-delay: .6s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* River line */
+.river { display: block; width: 100%; height: 90px; color: var(--mist); }
+
+/* Content */
+.intro { display: grid; grid-template-columns: 1fr 1.3fr; gap: 2rem 5rem; padding-block: clamp(3rem, 7vw, 6rem); align-items: start; }
+.intro h2, .sec-title { font: 400 clamp(2.2rem, 4.6vw, 3.6rem)/1.05 var(--serif); margin: 0; text-wrap: balance; }
+.intro h2 em, .sec-title em { font-style: italic; color: var(--muted); }
+.intro p { margin: 0 0 1.25rem; max-width: 60ch; }
+.intro .sig { font: italic 400 1.6rem/1 var(--serif); color: var(--muted); margin-top: 1.5rem; }
+
+.services { background: var(--white); }
+.services .wrap { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem 3rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.sec-head p { margin: 0; max-width: 28rem; color: var(--muted); }
+.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--pale); }
+.svc li { padding: 2rem 2rem 2.25rem 0; border-bottom: 1px solid var(--pale); min-width: 0; }
+.svc li:not(:nth-child(3n+1)) { padding-left: 2rem; border-left: 1px solid var(--pale); }
+.svc h3 { font: 500 1.6rem/1.15 var(--serif); margin: 0 0 .6rem; }
+.svc p { margin: 0; color: var(--muted); font-size: .98rem; }
+.leaf { width: 26px; height: 14px; display: block; margin-bottom: 1rem; color: var(--mist); }
+
+.journey { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.steps { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; counter-reset: s; }
+.steps li { counter-increment: s; min-width: 0; }
+.steps li::before { content: counter(s, upper-roman) "."; display: block; font: italic 300 2.6rem/1 var(--serif); color: var(--mist); margin-bottom: .9rem; }
+.steps strong { display: block; font: 500 1.35rem/1.2 var(--serif); margin-bottom: .4rem; }
+.steps span { color: var(--muted); font-size: .98rem; }
+
+.funding { border-top: 1px solid #d9e2e7; display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem 4rem; padding-block: 2.75rem 0; margin-top: 4rem; }
+.funding h3 { font: 400 .78rem/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.funding p { margin: 0; font: 400 1.4rem/1.5 var(--serif); }
+
+/* Contact */
+.contact { background: var(--river); color: var(--pale); }
+.contact .wrap { padding-block: clamp(4rem, 9vw, 7rem); display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem 5rem; align-items: end; }
+.contact h2 { font: 300 clamp(2.6rem, 6vw, 4.6rem)/1 var(--serif); margin: 0 0 1.25rem; color: #fff; text-wrap: balance; }
+.contact h2 em { color: var(--mist); }
+.contact p { margin: 0; max-width: 34ch; }
+.contact ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+.contact small { display: block; font: 400 .72rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--mist); margin-bottom: .45rem; }
+.contact li a, .contact li span { font: 400 clamp(1.35rem, 2.6vw, 1.85rem)/1.2 var(--serif); text-decoration: none; overflow-wrap: anywhere; color: #fff; }
+footer { background: var(--river); color: var(--mist); border-top: 1px solid var(--river-2); }
+footer .wrap { padding-block: 2rem 6rem; display: flex; justify-content: space-between; gap: 1rem 3rem; flex-wrap: wrap; font-size: .85rem; }
+footer p { margin: 0; max-width: 62ch; }
+
+.concept-pill {
+  position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 5;
+  font: 500 .8rem/1 var(--sans); background: #fff; color: var(--ink); text-decoration: none;
+  border-radius: 999px; padding: .7rem 1rem; box-shadow: 0 6px 24px rgba(10,20,30,.25);
+}
+
+@media (max-width: 860px) {
+  .intro, .funding, .contact .wrap { grid-template-columns: 1fr; }
+  .svc { grid-template-columns: 1fr 1fr; }
+  .svc li, .svc li:not(:nth-child(3n+1)) { padding: 1.5rem 1.25rem 1.75rem 0; border-left: 0; }
+  .svc li:nth-child(2n) { padding-left: 1.25rem; border-left: 1px solid var(--pale); }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .big-sprig { opacity: .22; width: 80vw; right: -18vw; }
+}
+@media (max-width: 520px) {
+  .svc, .steps { grid-template-columns: 1fr; }
+  .svc li:nth-child(2n) { padding-left: 0; border-left: 0; }
+  .top nav { gap: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="lf"><path d="M0 0 C 12 -13 34 -15 52 0 C 34 13 12 12 0 0 Z" fill="none"/><path d="M4 0 C 18 -1.5 33 -1 46 0" fill="none"/></g>
+  </defs>
+</svg>
+
+<div class="open">
+  <div class="wrap">
+    <header class="top">
+      <a class="wordmark" href="#">OT<i>with</i>Joanne</a>
+      <nav aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <p class="kicker">Occupational Therapy · Brisbane</p>
+      <h1>Everyday life, made a little <em>easier.</em></h1>
+      <p class="byline">with Joanne Di Lizio, Occupational Therapist</p>
+      <p>Personal, unhurried occupational therapy in your home and community, so you can keep doing the things that matter to you.</p>
+      <a class="cta" href="#contact">Start a conversation <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+  <svg class="big-sprig draw" viewBox="0 0 200 260" aria-hidden="true">
+    <circle cx="94" cy="92" r="80" fill="#2c3e4b"/>
+    <g fill="none" stroke="#a7bdcb" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M120 252 C 112 210 98 160 100 110 C 101 80 97 58 90 36"/>
+      <use href="#lf" transform="translate(92 46) rotate(-98) scale(.75)"/>
+      <use href="#lf" transform="translate(99 90) rotate(-128) scale(1)"/>
+      <use href="#lf" transform="translate(99.5 94) rotate(-55) scale(1.05)"/>
+      <use href="#lf" transform="translate(100 104) rotate(-84) scale(.85)"/>
+      <use href="#lf" transform="translate(100 120) rotate(-165) scale(1.35)"/>
+      <use href="#lf" transform="translate(101 132) rotate(-22) scale(1.1)"/>
+      <use href="#lf" transform="translate(106 182) rotate(-8) scale(.95)"/>
+      <use href="#lf" transform="translate(108 196) rotate(176) scale(1.2)"/>
+      <use href="#lf" transform="translate(111 212) rotate(158) scale(.9)"/>
+    </g>
+  </svg>
+</div>
+
+<main>
+  <svg class="river" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 C 180 20 220 70 400 70 S 640 18 800 30 S 1020 80 1200 60" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+  </svg>
+
+  <div class="wrap">
+    <section class="intro" id="about">
+      <h2>Therapy that starts with <em>what a good day looks like</em> for you.</h2>
+      <div>
+        <p>Occupational therapy helps people take part in the everyday activities that give life its shape: caring for yourself, keeping a home, working, connecting with others.</p>
+        <p>I'm Joanne, a registered occupational therapist in Brisbane. I see clients where life actually happens, take time to listen, and work closely with families, carers and support teams to make change that lasts.</p>
+        <p class="sig">Joanne</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">How I can <em>help</em></h2>
+        <p>Every plan is tailored. These are the areas I work in most often.</p>
+      </div>
+      <ul class="svc">
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>Functional assessments</h3><p>An honest picture of strengths and needs, with recommendations you can act on.</p></li>
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>Home modifications</h3><p>Practical changes, from grab rails to bathroom redesigns, that make home safer.</p></li>
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>Assistive technology</h3><p>Choosing, trialling and setting up equipment that suits you and your space.</p></li>
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>Daily living skills</h3><p>Routines and strategies for self-care, cooking, and getting out and about.</p></li>
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>NDIS supports</h3><p>Capacity building and clear, well-evidenced reports for plan reviews.</p></li>
+        <li><svg class="leaf" viewBox="0 0 56 16" aria-hidden="true"><g transform="translate(2 8)" stroke="currentColor" stroke-width="1.3"><use href="#lf"/></g></svg><h3>Mobile visits</h3><p>Sessions at home, at work or in the community across Brisbane.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="journey">
+      <h2 class="sec-title">Working <em>together</em></h2>
+      <ol class="steps">
+        <li><strong>Get in touch</strong><span>Refer yourself, or ask your GP, support coordinator or family to reach out.</span></li>
+        <li><strong>We meet</strong><span>An initial assessment, usually at home, to understand your goals.</span></li>
+        <li><strong>A clear plan</strong><span>Recommendations shaped around your priorities and budget.</span></li>
+        <li><strong>Therapy &amp; review</strong><span>Regular sessions and check-ins as things change.</span></li>
+      </ol>
+      <div class="funding">
+        <h3>Funding</h3>
+        <p>NDIS (self- and plan-managed), Medicare with a GP plan, private health insurance, DVA and private clients.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's begin with a <em>conversation.</em></h2>
+      <p>Get in touch and I'll reply within two business days.</p>
+    </div>
+    <ul>
+      <li><small>Email</small><a href="mailto:otwithjoanne@gmail.com">otwithjoanne@gmail.com</a></li>
+      <li><small>Phone</small><a href="tel:+61435255665">0435 255 665</a></li>
+      <li><small>Visiting</small><span>Brisbane and surrounds</span></li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <p>OTwithJoanne acknowledges the Turrbal and Yugara peoples, Traditional Custodians of the land on which we live and work, and pays respect to Elders past and present.</p>
+    <p>© 2026 OTwithJoanne · AHPRA registered</p>
+  </div>
+</footer>
+
+<a class="concept-pill" href="index.html">← All concepts · Riverbend</a>
+</body>
+</html>
